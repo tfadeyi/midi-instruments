@@ -1,4 +1,4 @@
-package internal
+package util
 
 // GetKeyboardNote takes the keyboard key as input and returns
 // a map containing the corresponding notes with their int value

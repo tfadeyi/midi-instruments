@@ -3,7 +3,7 @@ package akai
 import (
 	"fmt"
 	"github.com/tfadeyi/midi-instruments/api"
-	"github.com/tfadeyi/midi-instruments/internal"
+	"github.com/tfadeyi/midi-instruments/pkg/util"
 	"gitlab.com/gomidi/midi"
 	"gitlab.com/gomidi/midi/reader"
 	driver "gitlab.com/gomidi/rtmididrv"
@@ -93,7 +93,7 @@ func (k *AkaiLpk25) StartListening() error {
 	rd := reader.New(
 		reader.NoLogger(),
 		reader.NoteOn(func(pos *reader.Position, ch uint8, key uint8, vel uint8){
-			notes := internal.GetKeyboardNote(key)
+			notes := util.GetKeyboardNote(key)
 			for note, _ := range notes{
 				// Append event note to keyboard buffer
 				k.Buffer = append(k.Buffer, note)
