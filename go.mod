@@ -1,4 +1,4 @@
-module personal/midi-instruments/midi-instruments
+module github.com/tfadeyi/midi-instruments
 
 go 1.14
 
