@@ -4,7 +4,7 @@ PATH   := $(BINDIR):$(PATH)
 go_vet:
 	go vet $$(go list ./...)
 
-go_test: codegen
+go_test: mocks/instruments.go
 	go test -coverprofile=coverage.profile $$(go list ./...)
 
 go_build:
@@ -27,6 +27,5 @@ $(BINDIR)/mockgen:
 	mkdir -p $(BINDIR)
 	go build -o $(BINDIR)/mockgen github.com/golang/mock/mockgen
 
-.PHONY: codegen
-codegen: $(BINDIR)/go-bindata $(BINDIR)/mockgen api/interfaces.go
+mocks/instruments.go: $(BINDIR)/go-bindata $(BINDIR)/mockgen api/interfaces.go
 	go generate ./pkg/...
