@@ -50,17 +50,17 @@ func GetKeyboardNote(key uint8) map[string]uint8 {
 		return notes
 	case 9:
 		notes := make(map[string]uint8, 1)
-		notes["a"] = key
+		notes["note:a"] = key
 		return notes
 	case 10:
 		notes := make(map[string]uint8, 2)
-		notes["a#"] = key
-		notes["bb"] = key
+		notes["note:a#"] = key
+		notes["note:bb"] = key
 		return notes
 	case 11:
 		notes := make(map[string]uint8, 2)
-		notes["b"] = key
-		notes["cb"] = key
+		notes["note:b"] = key
+		notes["note:cb"] = key
 		return notes
 	}
 	return make(map[string]uint8, 1)
